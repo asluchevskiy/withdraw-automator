@@ -36,10 +36,10 @@ class Withdrawer:
         for i, row in enumerate(wallets):
             is_first = True
             allowed_networks = [n.strip().lower() for n in row['networks'].split(',')]
+            if row['private_key'].startswith('#'):
+                continue
             for network_name, node in self.nodes.items():
                 if row['networks'] and network_name not in allowed_networks:
-                    continue
-                if row['private_key'].startswith('#'):
                     continue
                 symbol = self.chains[node.chan_id]['nativeCurrency']['symbol']
                 acc = Account(node=node, private_key=row['private_key'])
