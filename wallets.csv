@@ -1,1 +1,3 @@
-private_key,withdraw_address
+private_key,to_address,networks,
+PRIVATE KEY 1,0xTOADDRESS 1,"ethereum,arbitrum one",THIS IS ONLY SELECTED NETWORKS (SPLITTED BY COMMA)
+PRIVATE KEY 2,0xTOADDRESS 2,,THIS IS ALL NETWORKS

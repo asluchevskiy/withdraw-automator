@@ -1,20 +1,36 @@
 # -*- coding: utf-8 -*-
 NETWORKS = {
     'ethereum': {
-        'rpc': '',
-        'explorer': '',
+        'rpc': 'https://eth.llamarpc.com',
+        'explorer': 'https://etherscan.io',
     },
     'polygon': {
-        'rpc': '',
-        'explorer': '',
+        'rpc': 'https://rpc-mainnet.maticvigil.com',
+        'explorer': 'https://polygonscan.com/',
     },
     'binance': {
-        'rpc': '',
-        'explorer': '',
+        'rpc': 'https://bsc-dataseed.binance.org',
+        'explorer': 'https://bscscan.com',
     },
     'avalanche': {
-        'rpc': '',
-        'explorer': '',
+        'rpc': 'https://api.avax.network/ext/bc/C/rpc',
+        'explorer': 'https://snowtrace.io',
+    },
+    'fantom': {
+        'rpc': 'https://rpcapi.fantom.network',
+        'explorer': 'https://ftmscan.com',
+    },
+    'arbitrum one': {
+        'rpc': 'https://arb1.arbitrum.io/rpc',
+        'explorer': 'https://arbiscan.io',
+    },
+    'arbitrum nova': {
+        'rpc': 'https://nova.arbitrum.io/rpc',
+        'explorer': 'https://nova.arbiscan.io',
+    },
+    'optimism': {
+        'rpc': 'https://mainnet.optimism.io',
+        'explorer': 'https://optimistic.etherscan.io',
     }
 }
 
