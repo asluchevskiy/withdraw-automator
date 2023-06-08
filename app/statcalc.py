@@ -41,21 +41,21 @@ class BridgeWithdrawMatch(BaseTransactionMatch):
         return 0
 
 
-class OrbiterBaseMarch(BaseTransactionMatch):
+class OrbiterBaseMatch(BaseTransactionMatch):
     orbiter_addresses = (
         '0x80C67432656d59144cEFf962E8fAF8926599bCF8'.lower(),
         '0xE4eDb277e41dc89aB076a1F049f4a3EfA700bCE8'.lower()
     )
 
 
-class OrbiterDepositMatch(OrbiterBaseMarch):
+class OrbiterDepositMatch(OrbiterBaseMatch):
     name = 'orbiter_deposit'
 
     @staticmethod
     def match(tx):
         if not int(tx['txreceipt_status']):
             return 0
-        if tx['from'] in OrbiterBaseMarch.orbiter_addresses:
+        if tx['from'] in OrbiterBaseMatch.orbiter_addresses:
             return 1
         return 0
 
@@ -67,7 +67,7 @@ class OrbiterWithdrawMatch(BaseTransactionMatch):
     def match(tx):
         if not int(tx['txreceipt_status']):
             return 0
-        if tx['to'] in OrbiterBaseMarch.orbiter_addresses:
+        if tx['to'] in OrbiterBaseMatch.orbiter_addresses:
             return 1
         return 0
 
