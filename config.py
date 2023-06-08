@@ -39,6 +39,9 @@ LOG_FILE = 'default.log'
 
 NEXT_WALLET_DELAY = (30, 60)
 
+STAT_WALLETS_FILE = 'wallets.txt'
+STAT_WALLETS_RESULT_FILE = 'wallets_stat.csv'
+
 try:
     from local_config import *
 except ImportError:
