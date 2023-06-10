@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from web3pylib import load_lines, setup_color_logging, setup_file_logging
-
 import config
 from app.statcalc import StatCalculator
+from app.utils import load_lines, setup_color_logging, setup_file_logging
 
 
 def main():

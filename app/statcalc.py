@@ -6,7 +6,8 @@ import time
 from typing import Union
 
 import requests
-from web3pylib.api import Node
+
+from app.api import Node
 
 
 class BaseTransactionMatch:
