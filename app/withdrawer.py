@@ -47,7 +47,7 @@ class Withdrawer:
         tx = account.estimate_transfer_gas(to_address, Web3.to_wei(0.00001, 'ether'))
         transaction_fee = self.get_transaction_price(tx)
         if token_address:
-            token = Erc20Token(node=node, address=token_address)
+            token = Erc20Token(node=node, address=Web3.to_checksum_address(token_address))
             total_balance = token.balance_of(account.address)
             symbol = token.symbol
             self.logger.debug(f'token balance {token.native_to_amount(total_balance)} {symbol}')
