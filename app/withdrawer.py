@@ -37,6 +37,7 @@ class Withdrawer:
     def process_withdraw(self, account: Account, to_address, token_address, mode, amount_range):
         balance = account.balance_in_wei
         node = account.node
+        to_address = Web3.to_checksum_address(to_address)
         network_symbol = self.chains[node.chain_id]['nativeCurrency']['symbol']
         # logging
         self.logger.debug(f'balance {Web3.from_wei(balance, "ether")} {network_symbol} in {node.network_name.title()} '
