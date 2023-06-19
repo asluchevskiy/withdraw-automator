@@ -168,14 +168,21 @@ class Account:
         return signed_tx
 
     def build_transaction(self, tx, amount):
-        tx = tx.build_transaction({
+        tx_data = {
             'value': amount,
             'from': self.address,
             'nonce': self.transaction_count,
-            'type': '0x2',  # EIP 1559 transaction
-            'maxFeePerGas': self._node.max_fee,
-            'maxPriorityFeePerGas': self._node.max_priority_fee,
-        })
+        }
+        if self._web3.eth.chain_id in (324, 250, 56):  # for zksync era, fantom, bsc
+            tx_data.update({
+                'gasPrice': self._web3.eth.gas_price,
+            })
+        else:
+            tx_data.update({
+                'maxFeePerGas': int(self._node.max_fee),
+                'maxPriorityFeePerGas': self._node.max_priority_fee,
+            })
+        tx = tx.build_transaction(tx_data)
         tx['gas'] = self._node.estimate_gas(tx)
         return tx
 
